@@ -12,3 +12,33 @@ console.log("=====================================");
 
 // Mulai pengujian di bawah ini
 
+//===1. Import Fungsi
+import { addBook, listBooks, searchBook } from "./functions/bookManager"
+
+//===2. Tambah Buku
+console.log();
+console.log("===Uji tambah buku===");
+addBook({ title: "Layar Terkembang", author: "Budi S", publicationYear: 1955 });
+addBook({ title: "Hujan", author: "Ahmad", publicationYear: 2012 });
+addBook({ title: "Suatu Pagi", author: "Hariman", publicationYear: 1990 });
+
+//===3. Tampilkan Buku
+console.log();
+console.log("===Uji fungsi listBooks===");
+listBooks();
+
+//===4A. Cari Buku tanpa parameter
+console.log();
+console.log("===Uji fungsi searchBook dengan parameter===");
+searchBook()
+
+//===4B. Cari Buku dengan parameter
+console.log();
+console.log("===Cari buku yang tidak ada===");
+searchBook("Sore");
+
+console.log();
+console.log("===Cari buku yang ada===");
+searchBook("Pagi");
+
+
