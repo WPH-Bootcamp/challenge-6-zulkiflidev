@@ -16,21 +16,31 @@ const bookManager_1 = require("./functions/bookManager");
 //===2. Tambah Buku
 console.log();
 console.log("===Uji tambah buku===");
-(0, bookManager_1.addBook)({ title: "Layar Terkembang", author: "Budi S", publicationYear: 1955 });
-(0, bookManager_1.addBook)({ title: "Hujan", author: "Tere Liye", publicationYear: 2012 });
-(0, bookManager_1.addBook)({ title: "Pagi", author: "Hariman", publicationYear: 1990 });
+(0, bookManager_1.addBook)({ title: "Tenggelamnya Kapal Van der Wijck", author: "Hamka", publicationYear: 1938 });
+(0, bookManager_1.addBook)({ title: "Azab dan Sengsara", author: "Merari Siregar", publicationYear: 1920 });
+(0, bookManager_1.addBook)({ title: "Layar Terkembang", author: "Sutan Takdir Alisjahbana", publicationYear: 1936 });
+(0, bookManager_1.addBook)({ title: "Manusia Baru", author: "Sanusi Pane", publicationYear: 1940 });
+(0, bookManager_1.addBook)({ title: "Namaku Hiroko", author: "Nh. Dini", publicationYear: 1977 });
+(0, bookManager_1.addBook)({ title: "Hujan dan Migrain", author: "Sapardi Djoko Damono", publicationYear: 2014 });
+(0, bookManager_1.addBook)({ title: "Sitti Nurbaya: Kasih Tak Sampai dan Sengsara Membawa Nikmat", author: "Marah Rusli", publicationYear: 1920 });
+(0, bookManager_1.addBook)({ title: "Lupus: Tangkaplah Daku Kau Kujitak", author: "Hilman Hariwijaya", publicationYear: 1986 });
+(0, bookManager_1.addBook)({ title: "Ali Topan Anak Jalanan", author: "Teguh Esha", publicationYear: 1977 });
+(0, bookManager_1.addBook)({ title: "Dilan: Dia adalah Dilanku Tahun 1990", author: "Pidi Baiq", publicationYear: 2014 });
+(0, bookManager_1.addBook)({ title: "Selamat Tinggal", author: "Tere Liye", publicationYear: 2020 });
 //===3. Tampilkan Buku
 console.log();
 console.log("===Uji fungsi listBooks===");
 (0, bookManager_1.listBooks)();
 //===4A. Cari Buku tanpa parameter
 console.log();
-console.log("===Uji fungsi searchBook dengan parameter===");
+console.log("===Uji fungsi searchBook tanpa parameter===");
 (0, bookManager_1.searchBook)();
 //===4B. Cari Buku dengan parameter
 console.log();
-console.log("===Cari buku yang tidak ada===");
-(0, bookManager_1.searchBook)("Sore");
+console.log("===Uji fungsi searchBook dengan parameter===");
 console.log();
-console.log("===Cari buku yang ada===");
-(0, bookManager_1.searchBook)("Pagi");
+console.log("=== (1) Cari buku yang tidak tersedia===");
+(0, bookManager_1.searchBook)("sore");
+console.log();
+console.log("=== (2) Cari buku yang tersedia===");
+(0, bookManager_1.searchBook)("dan");
