@@ -1,6 +1,16 @@
 // Tugas 3: Implementasikan fungsi-fungsi manajemen buku
 
 import { books } from "../data/books"
+import { TBook } from "../types";
+
+
+//untuk pewarnaan text
+const RED = "\x1b[31m";
+const GREEN = "\x1b[32m";
+const YELLOW = "\x1b[93m";
+const BLUE = "\x1b[34m";
+const RESET = "\x1b[0m";
+
 
 // Fungsi addBook
 // Fungsi ini digunakan untuk menambahkan buku baru ke dalam koleksi
@@ -10,7 +20,7 @@ import { books } from "../data/books"
 
 export function addBook(book: TBook):void {
     books.push(book);
-    console.log("Add Done...")
+    console.log(`Tambah buku dengan judul ${YELLOW} ${book.title} ${RESET} --> ${BLUE}Selesai${RESET}`)
 }
 
 
@@ -24,7 +34,7 @@ export function addBook(book: TBook):void {
 export function listBooks():void {
     books.forEach(
         (book,index) => {
-            console.log(`${index+1}. Judul: ${book.title}, Penulis: ${book.author}, Publication Year: ${book.publicationYear}`)
+            console.log(`${index+1}. ${YELLOW} ${book.title} ${RESET}, ${book.author}, ${book.publicationYear}`)
         }
     );
 }
@@ -37,12 +47,26 @@ export function listBooks():void {
 // Petunjuk: jika parameter title diberikan, cari buku yang cocok
 //           jika tidak diberikan, tampilkan semua buku atau berikan informasi yang sesuai
 
-export function searchBook(title?: string,):void {
+export function searchBook(keyword?: string,):void {
  
-    if (title === undefined){
+    if (keyword === undefined)
+    {
         listBooks();
         return;
     }
-    console.log(books.find(book => book.title.toLowerCase() == title?.toLowerCase()));
-
+    else{
+        console.log(`Memulai pencarian untuk kata kunci ${BLUE}"${keyword}" ${RESET}`);
+        console.log();
+        const foundBooks = books.filter(book => book.title.toLocaleLowerCase().includes(keyword.toLowerCase()))
+         
+        if (foundBooks.length > 0 ){
+            console.log("Hasil Pencarian:");           
+            foundBooks.forEach((book, index) => { console.log(`${index+1}. ${YELLOW} ${book.title} ${RESET}, ${book.author}, ${book.publicationYear}`)})        
+        }
+        else {
+            console.log("Hasil Pencarian:"); 
+            console.log(`${RED}Maaf! Buku yang anda cari tidak ditemukan! ${RESET}`) 
+        }
+    }
+    console.log();
 }

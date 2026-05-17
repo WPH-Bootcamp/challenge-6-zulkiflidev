@@ -3,10 +3,10 @@
 // Petunjuk: gunakan type alias atau interface untuk mendefinisikan struktur data ini
 // Pastikan tipe data untuk setiap properti sudah sesuai dengan kebutuhan
 
-interface IBook {
+export interface IBook {
     title:string;
     author:string;
     publicationYear:number;
 }
 
-type TBook = IBook;
+export type TBook = IBook;
